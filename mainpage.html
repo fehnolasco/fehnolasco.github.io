@@ -11,6 +11,7 @@
     <!--<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="animsition/css/animsition.min.css" rel="stylesheet">
 
     <style>
         body,
@@ -46,6 +47,7 @@
         h6 {
             font-family: 'Raleway', sans-serif;
         }
+
         h1,
         h2,
         h3,
@@ -70,7 +72,7 @@
     </style>
 </head>
 
-<body>
+<body class="animsition">
 
     <ul id="dropdown1" class="dropdown-content">
         <li>
@@ -334,6 +336,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="animsition/js/animsition.min.js"></script>
+    <script>
+        (function () {
+            $(".animsition").animsition({
+                inClass: 'fade-in',
+                outClass: 'fade-out',
+                inDuration: 1500,
+                outDuration: 800,
+                linkElement: '.animsition-link',
+                loading: true,
+                loadingParentElement: 'html',
+                loadingClass: 'animsition-loading-1',
+                loadingInner: '<div class="loader05"></div>',
+                timeout: false,
+                timeoutCountdown: 5000,
+                onLoadEvent: true,
+                browser: ['animation-duration', '-webkit-animation-duration'],
+                overlay: false,
+                overlayClass: 'animsition-overlay-slide',
+                overlayParentElement: 'html',
+                transition: function (url) { window.location.href = url; }
+            });
+        })(jQuery);
+        AOS.init();
+    </script>
     <script>
         $(document).ready(function () {
             $('.sidenav').sidenav();
@@ -343,9 +370,8 @@
                     "coverTrigger": false
                 });
             M.updateTextFields();
-            
+
         });
-        AOS.init();
     </script>
 </body>
 
